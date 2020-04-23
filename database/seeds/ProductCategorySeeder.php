@@ -12,7 +12,7 @@ class ProductCategorySeeder extends Seeder
     public function run()
     {
         DB::table('product_categories')->insert([
-            'category_product' => Str::random(10),
+            'product_category' => Str::random(10),
             'product_type' => rand(1,3),
             'status' => 1,
             'created_at' => now(),
