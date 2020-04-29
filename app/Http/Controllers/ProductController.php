@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductCategory;
 use App\Uom;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class ProductController extends Controller
     public function create()
     {
         $uoms =Uom::all();
-        return view('master.product.create',compact('uoms'));
+        $productCategories = ProductCategory::all();
+        return view('master.product.create',compact('uoms'),compact('productCategories'));
     }
 
     /**
@@ -37,7 +39,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create($request->all());
+
+        $uoms = $request->input('uoms', []);
+        $conversions = $request->input('conversions', []);
+        $levels = $request->input('level', []);
+        for ($i=0; $i < count($uoms); $i++) {
+            if ($uoms[$i] != '') {
+                $product->uoms()->attach($uoms[$i], ['conversion' => $conversions[$i], 'level' => $levels[$i]]);
+            }
+        }
+
+        return redirect('/product')->with('status','Data Produk Berhasil Disimpan !');
     }
 
     /**
@@ -48,7 +61,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $uoms =Uom::all();
+        $productCategories = ProductCategory::all();
+        return view('master.product.show',compact('product','productCategories','uoms'));
     }
 
     /**
@@ -85,16 +100,5 @@ class ProductController extends Controller
         //
     }
 
-    public function detail(Request $request)
-    {
-        $details = array([
-            'id'=> $request->uom_id,
-            'name'=> $request->uom_name,
-            'conversion'=> $request->conversion,
-        ]);
-        // session()->put('details',$details);
-        Session::put('details',$details);
-        return $details;
-        // return view('master.product.edit',compact('productCategory'));
-    }
+
 }

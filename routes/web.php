@@ -31,6 +31,5 @@ Route::get('/', function () {
 //Change that many route above into one line if using resources
 Route::resource('product-category', 'ProductCategoryController');
 Route::resource('product', 'ProductController');
-Route::post('product/detail', 'ProductController@detail');
 Route::post('stock/delivery-note', 'ProductController@detail');
 

@@ -29,15 +29,17 @@
         </div>
     </div>
 
-<footer class="fixed-bottom row">
-    <div class="col-2 ml-md-3"></div>
-    <div class="col-2">
-        <button class="btn btn-primary">Kembali</button>
-    </div>
-    <div class="col-7 ml-md-5 text-right">
-        <button type="submit" class="btn btn-primary">Simpan</a>
-    </div>
-</footer>
+    <footer class="fixed-bottom row">
+        <div class="col-md-2 ml-4"></div>
+        <div class="col-10 row bg-dark  py-1">
+            <div class="col-2">
+                <button class="btn btn-primary">Kembali</button>
+            </div>
+            <div class="col-9 text-right">
+                <button type="submit" class="btn btn-primary">Simpan</a>
+            </div>
+        </div>
+    </footer>
 
 </form>
 <script>

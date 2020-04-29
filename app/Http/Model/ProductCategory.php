@@ -21,4 +21,8 @@ class ProductCategory extends Model
     protected $attributes = [
         'status' => 1,
     ];
+
+    public function product(){
+        return $this->hasOne('App\Product');
+    }
 }

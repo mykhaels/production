@@ -25,7 +25,7 @@
         @foreach ($products as $item)
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $item->code - $item->name }}</td>
+                <td>{{ $item->code }} - {{ $item->name }}</td>
                 <td>{{ $item->productCategory->product_category }}</td>
                 @if ($item->product_type==1)
                 <td>Barang Jadi</td>
@@ -47,12 +47,14 @@
 </table>
 
 <footer class="fixed-bottom row">
-    <div class="col-2 ml-md-3"></div>
-    <div class="col-2">
-        <button class="btn btn-primary">Kembali</button>
-    </div>
-    <div class="col-7 ml-md-5 text-right">
-        <a class="btn btn-primary" href="/product/create">Buat Baru</a>
+    <div class="col-md-2 ml-4"></div>
+    <div class="col-10 row bg-dark  py-1">
+        <div class="col-2">
+            <button class="btn btn-primary">Kembali</button>
+        </div>
+        <div class="col-9 text-right">
+            <a class="btn btn-primary" href="/product/create">Buat Baru</a>
+        </div>
     </div>
 </footer>
 <script>
