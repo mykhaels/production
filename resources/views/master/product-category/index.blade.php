@@ -50,6 +50,9 @@
             </tr>
         @endforeach
     </tbody>
+    <tr>
+        <td>{{ $categories->links() }}</td>
+    </tr>
 </table>
 
 <footer class="fixed-bottom row">

@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\DeliveryNote;
-use App\Uom;
 use Illuminate\Http\Request;
+use App\Uom;
+use App\DeliveryRequest;
 
-class DeliveryNoteController extends Controller
+class DeliveryRequestController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('stock.delivery-note.index',  ['deliveryNotes'=>DeliveryNote::paginate(10)]);
+        return view('production.delivery-request.index',  ['deliveryRequests'=>DeliveryRequest::paginate(10)]);
     }
 
     /**
@@ -26,7 +26,7 @@ class DeliveryNoteController extends Controller
     public function create()
     {
         $uoms =Uom::all();
-        return view('stock.delivery-note.create', compact('uoms'));
+        return view('production.delivery-request.create', compact('uoms'));
     }
 
     /**

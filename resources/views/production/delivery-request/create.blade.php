@@ -2,10 +2,10 @@
 @section('title','Home')
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Insert Pengeluaran Bahan Baku</h1>
+    <h1 class="h2">Insert Permintaan Bahan Baku</h1>
 </div>
 
-<form method="post" action="/delivery-note">
+<form method="post" action="/delivery-request">
     @csrf
     <div class="form-group row">
         <label for="productType" class="col-sm-2 col-form-label">Tipe Produk</label>
@@ -17,16 +17,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="type" class="col-sm-2 col-form-label">Tipe Pengeluaran</label>
-        <div  class="col-sm-2">
-            <select class="form-control" id="type" name="type">
-            <option value="1">Produksi</option>
-            <option value="2">Bahan Penolong</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="code" class="col-sm-2 col-form-label">No Pengeluaran</label>
+        <label for="code" class="col-sm-2 col-form-label">No Permintaan</label>
         <div  class="col-sm-2">
             <input type="text" class="form-control @error('code') is-invalid @enderror" id="code"  name="code" value="{{ old('code') }}">
             @error('code')
@@ -37,7 +28,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="transaction_date" class="col-sm-2 col-form-label">Tanggal Pengeluaran</label>
+        <label for="transaction_date" class="col-sm-2 col-form-label">Tanggal Permintaan</label>
         <div  class="col-sm-2">
             <input type="date" class="form-control @error('transaction_date') is-invalid @enderror" id="transaction_date"  name="transaction_date" value="{{ old('transaction_date') }}">
             @error('transaction_date')
@@ -48,11 +39,11 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="transaction_date" class="col-sm-2 col-form-label">No Permintaan Produksi</label>
+        <label for="transaction_date" class="col-sm-2 col-form-label">No Perintah Produksi</label>
         <div  class="col-sm-2">
-            <input type="hidden" class="form-control @error('delivery_request_id') is-invalid @enderror" id="delivery_request_id"  name="delivery_request_id" value="{{ old('delivery_request_id') }}">
-            <input type="input" class="form-control @error('delivery_request_code') is-invalid @enderror" id="delivery_request_code"  name="delivery_request_code" value="{{ old('delivery_request_code') }}">
-            @error('delivery_request_code')
+            <input type="hidden" class="form-control @error('production_order_id') is-invalid @enderror" id="production_order_id"  name="production_order_id" value="{{ old('production_order_id') }}">
+            <input type="input" class="form-control @error('production_order_code') is-invalid @enderror" id="production_order_code"  name="production_order_code" value="{{ old('production_order_code') }}">
+            @error('production_order_code')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

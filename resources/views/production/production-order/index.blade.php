@@ -2,7 +2,7 @@
 @section('title','Home')
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Transaksi Pengeluaran Bahan Produksi</h1>
+    <h1 class="h2">Transaksi Perintah Produksi</h1>
 </div>
 @if (session('status'))
     <div class="alert alert-success">
@@ -13,35 +13,31 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">No. Pengeluaran</th>
-            <th scope="col">Tanggal Pengeluaran</th>
-            <th scope="col">Tipe Produk</th>
-            <th scope="col">Tipe Pengeluaran</th>
-            <th scope="col">No. Permintaan Produksi</th>
+            <th scope="col">No. Perintah Produksi</th>
+            <th scope="col">Tanggal Perintah Produksi</th>
+            <th scope="col">Tipe Produksi</th>
+            <th scope="col">Status Produksi</th>
             <th scope="col">Lihat Detail</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($deliveryNotes as $item)
+        @foreach ($productionOrders as $item)
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{ $item->code }}</td>
                 <td>{{ $item->transaction_date }}</td>
-                @if ($item->product_type==1)
+                @if ($item->production_type==1)
                 <td>Barang Jadi</td>
-                @elseif ($item->product_type==2)
-                <td>Bahan Baku</td>
                 @else
-                <td>Pendukung</td>
+                <td>Bahan Baku</td>
                 @endif
-                <td>{{ $item->type }}</td>
-                <td>{{ $item->type }}</td>
-                <td><a class="btn btn-success" href="delivery-note/{{ $item->id }}">Lihat Detail</a></td>
+                <td>{{ $item->status }}</td>
+                <td><a class="btn btn-success" href="production-order/{{ $item->id }}">Lihat Detail</a></td>
             </tr>
         @endforeach
     </tbody>
     <tr>
-        <td>{{ $deliveryNotes->links() }}</td>
+        <td>{{ $productionOrders->links() }}</td>
     </tr>
 </table>
 
@@ -51,11 +47,11 @@
         <button class="btn btn-primary">Kembali</button>
     </div>
     <div class="col-7 ml-md-5 text-right">
-        <a class="btn btn-primary" href="/delivery-note/create">Buat Baru</a>
+        <a class="btn btn-primary" href="/production-order/create">Buat Baru</a>
     </div>
 </footer>
 <script>
-    makeActive("#delivery_note");
+    makeActive("#production-order");
 </script>
 @endsection
 

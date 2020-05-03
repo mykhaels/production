@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeliveryNoteTable extends Migration
+class CreateDeliveryRequestDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateDeliveryNoteTable extends Migration
      */
     public function up()
     {
-        Schema::create('delivery_note', function (Blueprint $table) {
+        Schema::create('delivery_request_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('code');
-            $table->char('delivery_type');
-            $table->date('transaction_date');
-            $table->bigInteger('order_request_id');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateDeliveryNoteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('delivery_note');
+        Schema::dropIfExists('delivery_request_details');
     }
 }

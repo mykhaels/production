@@ -14,7 +14,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        return view('master.product-category.index',  ['categories'=>ProductCategory::all()]);
+        return view('master.product-category.index',  ['categories'=>ProductCategory::paginate(10)]);
     }
 
     /**

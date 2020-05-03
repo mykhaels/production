@@ -13,4 +13,8 @@ class Uom extends Model
     {
         return $this->belongsToMany('App\Product');
     }
+    public function deliveryNoteDetails()
+    {
+        return $this->hasMany('App\DeliveryNoteDetails');
+    }
 }

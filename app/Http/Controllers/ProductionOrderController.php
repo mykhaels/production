@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\DeliveryNote;
+use App\ProductionOrder;
 use App\Uom;
 use Illuminate\Http\Request;
 
-class DeliveryNoteController extends Controller
+class ProductionOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DeliveryNoteController extends Controller
      */
     public function index()
     {
-        return view('stock.delivery-note.index',  ['deliveryNotes'=>DeliveryNote::paginate(10)]);
+        return view('production.production-order.index',  ['productionOrders'=>ProductionOrder::paginate(10)]);
     }
 
     /**
@@ -26,7 +26,7 @@ class DeliveryNoteController extends Controller
     public function create()
     {
         $uoms =Uom::all();
-        return view('stock.delivery-note.create', compact('uoms'));
+        return view('production.production-order.create', compact('uoms'));
     }
 
     /**
@@ -43,10 +43,10 @@ class DeliveryNoteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\DeliveryNote  $deliveryNote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(DeliveryNote $deliveryNote)
+    public function show($id)
     {
         //
     }
@@ -54,10 +54,10 @@ class DeliveryNoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DeliveryNote  $deliveryNote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(DeliveryNote $deliveryNote)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +66,10 @@ class DeliveryNoteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DeliveryNote  $deliveryNote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DeliveryNote $deliveryNote)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +77,10 @@ class DeliveryNoteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DeliveryNote  $deliveryNote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeliveryNote $deliveryNote)
+    public function destroy($id)
     {
         //
     }

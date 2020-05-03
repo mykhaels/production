@@ -43,6 +43,9 @@
                 <td><a class="btn btn-success" href="product/{{ $item->id }}">Lihat Detail</a></td>
             </tr>
         @endforeach
+        <tr>
+            <td>{{ $products->links() }}</td>
+        </tr>
     </tbody>
 </table>
 

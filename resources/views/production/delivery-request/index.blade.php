@@ -2,7 +2,7 @@
 @section('title','Home')
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Transaksi Pengeluaran Bahan Produksi</h1>
+    <h1 class="h2">Transaksi Permintaan Bahan Produksi</h1>
 </div>
 @if (session('status'))
     <div class="alert alert-success">
@@ -13,16 +13,16 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">No. Pengeluaran</th>
-            <th scope="col">Tanggal Pengeluaran</th>
+            <th scope="col">No. Permintaan Produksi</th>
+            <th scope="col">Tanggal Permintaan Produksi</th>
             <th scope="col">Tipe Produk</th>
             <th scope="col">Tipe Pengeluaran</th>
-            <th scope="col">No. Permintaan Produksi</th>
+            <th scope="col">No. Perintah Produksi</th>
             <th scope="col">Lihat Detail</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($deliveryNotes as $item)
+        @foreach ($deliveryRequests as $item)
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{ $item->code }}</td>
@@ -34,14 +34,14 @@
                 @else
                 <td>Pendukung</td>
                 @endif
-                <td>{{ $item->type }}</td>
-                <td>{{ $item->type }}</td>
-                <td><a class="btn btn-success" href="delivery-note/{{ $item->id }}">Lihat Detail</a></td>
+                {{-- <td>{{ $item->type }}</td> --}}
+                <td>{{ $item->product_type }}</td>
+                <td><a class="btn btn-success" href="delivery-request/{{ $item->id }}">Lihat Detail</a></td>
             </tr>
         @endforeach
     </tbody>
     <tr>
-        <td>{{ $deliveryNotes->links() }}</td>
+        <td>{{ $deliveryRequests->links() }}</td>
     </tr>
 </table>
 
@@ -51,11 +51,11 @@
         <button class="btn btn-primary">Kembali</button>
     </div>
     <div class="col-7 ml-md-5 text-right">
-        <a class="btn btn-primary" href="/delivery-note/create">Buat Baru</a>
+        <a class="btn btn-primary" href="/delivery-request/create">Buat Baru</a>
     </div>
 </footer>
 <script>
-    makeActive("#delivery_note");
+    makeActive("#delivery_request");
 </script>
 @endsection
 

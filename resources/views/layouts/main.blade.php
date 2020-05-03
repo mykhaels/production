@@ -70,7 +70,7 @@
                     </h6>
                     <ul class="nav flex-column ml-3" id="storage-child">
                         <li class="nav-item">
-                            <a class="nav-link" href="/stock/delivery-note">
+                            <a class="nav-link" href="{{ url('delivery-note') }}">
                                 <span data-feather="file-text"></span>
                                 Pengeluaran Bahan Baku
                             </a>
@@ -91,13 +91,13 @@
                     </h6>
                     <ul class="nav flex-column ml-3" id="production-child">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ url('production-order') }}">
                                 <span data-feather="box"></span>
                                 Perintah Produksi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ url('delivery-request') }}">
                                 <span data-feather="aperture"></span>
                                 Permintaan Bahan Baku
                             </a>
